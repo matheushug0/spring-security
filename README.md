@@ -2,7 +2,7 @@
 - Projeto desenvolvido a partir [desse vídeo](https://www.youtube.com/watch?v=EQ5EwIYsgIE), com o propósito de entender e implementar os mecanismos de acesso utlizados numa API.
 - Processo de criação do projeto foi documentado via commits e  `README.md` a fim de:
     - Fixar os conhecimentos
-    - Execitar o uso do Git
+    - Exercitar o uso do Git
 ## Tópicos
 - Autenticação
 - Segurança de Rotas
@@ -12,7 +12,7 @@
 ## Roteiro do Projeto
 - [x] Criação de um projeto base sem implementação de segurança
 - [x] Adição do Spring Security e Proteção Automática
-- [ ] Configuração da segurança para as rotas
+- [x] Configuração da segurança para as rotas
 - [ ] Autenticando no Google com Oauth 2.0
 - [ ] Autenticação com JWT
 
@@ -65,3 +65,19 @@ String privateRoute(){
 - Acesso com as credenciais do Spring Security
 <img src="./files/5.jpg">
 
+### 3 - Configuração de segurança paras as rotas
+- Permissão de acesso sem autenticação paras as rotas públicas
+- Configuração para o padrão inicial do `formLogin`, assim a página de login para autenticação voltará a aparecer.
+```
+@Bean
+SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    return http.authorizeHttpRequests(
+                    authorizeRequests -> {
+                        authorizeRequests.requestMatchers("/public").permitAll();
+                        authorizeRequests.requestMatchers("/logout").permitAll();
+                        authorizeRequests.anyRequest().authenticated();
+                    })
+            .formLogin(Customizer.withDefaults())
+            .build();
+}
+```
