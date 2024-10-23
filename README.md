@@ -10,12 +10,24 @@
 - Uso do JWT no Resource Server
 
 ## Roteiro do Projeto
-- [ ] Criação de um projeto base sem implementação de segurança
+- [x] Criação de um projeto base sem implementação de segurança
 - [ ] Adição do Spring Security e Proteção Automática
 - [ ] Configuração da segurança para as rotas
 - [ ] Autenticando no Google com Oauth 2.0
 - [ ] Autenticação com JWT
 
+### 1 - Criação do Projeto
+- Implementação de uma rota pública sem autenticação
+```
+@GetMapping("/public")
+String publicRoute(){
+  return """
+          <h1>Public Route - you are allowed to access here.</h1>
+          """;
+}
+```
+- Acesso a rota pública
+<img src="./files/1.jpg">
 
 
 
