@@ -81,3 +81,11 @@ SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
             .build();
 }
 ```
+
+### 4 - Adição da dependência OAuth2 Client
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-oauth2-client</artifactId>
+</dependency>
+```
