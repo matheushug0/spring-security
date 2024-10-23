@@ -11,7 +11,7 @@
 
 ## Roteiro do Projeto
 - [x] Criação de um projeto base sem implementação de segurança
-- [ ] Adição do Spring Security e Proteção Automática
+- [x] Adição do Spring Security e Proteção Automática
 - [ ] Configuração da segurança para as rotas
 - [ ] Autenticando no Google com Oauth 2.0
 - [ ] Autenticação com JWT
@@ -30,4 +30,38 @@ String publicRoute(){
 <img src="./files/1.jpg">
 
 
+- Implementação de uma rota privada ainda sem autenticação
+```
+@GetMapping("/private")
+String privateRoute(){
+    return """
+            <h1>Private Route - you need authorization to access here.</h1>
+            """;
+}
+```
+### 2 - Adição do Spring Security
+- Adicionado a dependência do Spring Security
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-test</artifactId>
+    <scope>test</scope>
+</dependency>
+```
+
+- Foi atribuida automaticamente uma proteção às rotas de acesso
+<img src="./files/2.jpg">
+
+
+- O Spring Security fornece um usuário e senha padrões para acessar as rotas
+<img src="./files/3.jpg">
+
+<img src="./files/4.jpg">
+
+- Acesso com as credenciais do Spring Security
+<img src="./files/5.jpg">
 

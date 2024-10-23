@@ -22,4 +22,10 @@ class HttpController {
                 <h1>Public Route - you are allowed to access here.</h1>
                 """;
     }
+    @GetMapping("/private")
+    String privateRoute(){
+        return """
+                <h1>Private Route - you need authorization to access here.</h1>
+                """;
+    }
 }
